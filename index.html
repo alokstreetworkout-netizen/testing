@@ -18,30 +18,40 @@
   <p id="message"></p>
 
   <div id="typing-area">
+
     <div id="direction-options">
-      <div class="direction-option">
-        <span class="direction-name">↑ UP</span>
-        <span id="word-up"></span>
+
+      <div class="direction-option up-option">
+        <div class="direction-arrow">↑</div>
+        <div class="direction-name">UP</div>
+        <div id="word-up"></div>
       </div>
 
-      <div class="direction-option">
-        <span class="direction-name">↓ DOWN</span>
-        <span id="word-down"></span>
+      <div class="direction-option down-option">
+        <div class="direction-name">DOWN</div>
+        <div id="word-down"></div>
+        <div class="direction-arrow">↓</div>
       </div>
 
-      <div class="direction-option">
-        <span class="direction-name">← LEFT</span>
-        <span id="word-left"></span>
+      <div class="direction-option left-option">
+        <div class="direction-arrow">←</div>
+        <div class="direction-name">LEFT</div>
+        <div id="word-left"></div>
       </div>
 
-      <div class="direction-option">
-        <span class="direction-name">→ RIGHT</span>
-        <span id="word-right"></span>
+      <div class="direction-option right-option">
+        <div class="direction-name">RIGHT</div>
+        <div class="direction-arrow">→</div>
+        <div id="word-right"></div>
       </div>
+
+      <div id="center-marker">✦</div>
+
     </div>
 
     <div>You typed: <span id="typed-buffer"></span></div>
-    <div id="typing-hint">Press Enter or Space to move</div>
+    <div id="typing-hint">Type a direction word, then press Enter or Space</div>
+
   </div>
 
   <div id="game-screen">
