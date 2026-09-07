@@ -1,1 +1,42 @@
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyboard Dungeon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Dungeon Crawler</h1>
+  <p id="instructions">push as deep as you can before you die.</p>
+
+  <div id="game-area">
+    <div id="level-label">Level 1</div>
+    <div id="grid"></div>
+  </div>
+
+  <p id="message"></p>
+
+  <div id="typing-area">
+    <div id="direction-icon"></div>
+    <div>Type: <span id="word-target"></span></div>
+    <div>You typed: <span id="typed-buffer"></span></div>
+  </div>
+
+  <div id="game-screen">
+    <div id="screen-title">DUNGEON</div>
+    <div id="screen-text">
+      An enemy is coming for you.<br><br>
+      Choose a direction with an Arrow Key.<br>
+      Type the word shown on screen.<br>
+      Press Enter to move.<br><br>
+      Reach the exit before you're caught.
+    </div>
+    <div id="screen-action">Press Enter to start</div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
