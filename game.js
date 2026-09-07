@@ -249,7 +249,7 @@ function moveEnemy() {
 
 setInterval(moveEnemy, 750);
 
-// ---- Typing words ----
+// ---- Direction words ----
 const wordList = [
   'shadow',
   'flicker',
@@ -293,10 +293,10 @@ const wordList = [
 ];
 
 const directionWords = {
-  ArrowUp: '',
-  ArrowDown: '',
-  ArrowLeft: '',
-  ArrowRight: '',
+  up: '',
+  down: '',
+  left: '',
+  right: ''
 };
 
 let typedBuffer = '';
@@ -306,14 +306,16 @@ function setDirectionWords() {
 
   for (const direction of Object.keys(directionWords)) {
     const randomIndex = Math.floor(Math.random() * availableWords.length);
+
     directionWords[direction] = availableWords[randomIndex];
+
     availableWords.splice(randomIndex, 1);
   }
 
-  wordUpEl.textContent = directionWords.ArrowUp;
-  wordDownEl.textContent = directionWords.ArrowDown;
-  wordLeftEl.textContent = directionWords.ArrowLeft;
-  wordRightEl.textContent = directionWords.ArrowRight;
+  wordUpEl.textContent = directionWords.up;
+  wordDownEl.textContent = directionWords.down;
+  wordLeftEl.textContent = directionWords.left;
+  wordRightEl.textContent = directionWords.right;
 }
 
 function updateTypedDisplay() {
@@ -321,11 +323,10 @@ function updateTypedDisplay() {
 }
 
 function getTypedDirection() {
-  for (const direction of Object.keys(directionWords)) {
-    if (typedBuffer.toLowerCase() === directionWords[direction]) {
-      return direction;
-    }
-  }
+  if (typedBuffer === directionWords.up) return 'up';
+  if (typedBuffer === directionWords.down) return 'down';
+  if (typedBuffer === directionWords.left) return 'left';
+  if (typedBuffer === directionWords.right) return 'right';
 
   return null;
 }
@@ -335,33 +336,43 @@ async function checkWordAndMove() {
 
   const direction = getTypedDirection();
 
-  if (direction) {
+  if (!direction) {
     typedBuffer = '';
     updateTypedDisplay();
-
-    setDirectionWords();
-
-    if (direction === 'ArrowUp') {
-      await tryMove(0, -1);
-    }
-
-    if (direction === 'ArrowDown') {
-      await tryMove(0, 1);
-    }
-
-    if (direction === 'ArrowLeft') {
-      await tryMove(-1, 0);
-    }
-
-    if (direction === 'ArrowRight') {
-      await tryMove(1, 0);
-    }
-
     return;
   }
 
   typedBuffer = '';
   updateTypedDisplay();
+
+  setDirectionWords();
+
+  const startX = player.x;
+  const startY = player.y;
+
+  if (direction === 'up') {
+    await tryMove(0, -1);
+  }
+
+  if (direction === 'down') {
+    await tryMove(0, 1);
+  }
+
+  if (direction === 'left') {
+    await tryMove(-1, 0);
+  }
+
+  if (direction === 'right') {
+    await tryMove(1, 0);
+  }
+
+  if (player.x !== startX || player.y !== startY) {
+    playerMoves++;
+
+    if (playerMoves >= 3) {
+      enemyStarted = true;
+    }
+  }
 }
 
 // ---- Reset ----
@@ -377,6 +388,7 @@ function resetGame() {
   gameStarted = false;
 
   typedBuffer = '';
+
   messageEl.textContent = '';
 
   setDirectionWords();
@@ -444,16 +456,16 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  if (directionMap[key]) {
-    e.preventDefault();
-    return;
-  }
-
   if (key.length === 1 && /[a-zA-Z]/.test(key)) {
     e.preventDefault();
     typedBuffer += key.toLowerCase();
     updateTypedDisplay();
   }
+});
+
+window.addEventListener('blur', () => {
+  typedBuffer = '';
+  updateTypedDisplay();
 });
 
 // ---- Init ----
