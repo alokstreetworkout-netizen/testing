@@ -476,3 +476,15 @@ drawEnemy();
 updateTypedDisplay();
 
 screenEl.style.display = 'flex';
+
+// ---- Auto-fit to viewport (appended — does not modify game logic) ----
+function fitToViewport() {
+  document.body.style.transform = 'scale(1)';
+  const scaleX = window.innerWidth / document.body.scrollWidth;
+  const scaleY = window.innerHeight / document.body.scrollHeight;
+  const scale = Math.min(scaleX, scaleY, 1);
+  document.body.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener('resize', fitToViewport);
+fitToViewport();
