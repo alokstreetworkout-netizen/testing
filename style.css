@@ -15,8 +15,16 @@ body {
   text-align: center;
   cursor: none;
   user-select: none;
-  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
+}
+
+h1 {
+  margin: 8px 0 2px;
+}
+
+#instructions {
+  margin: 2px 0 6px;
 }
 
 #game-area {
@@ -37,12 +45,11 @@ body {
 
 #grid {
   display: grid;
-
   grid-template-columns: repeat(21, 26px);
   grid-template-rows: repeat(15, 26px);
   gap: 2px;
   justify-content: center;
-  margin: 8px auto;
+  margin: 4px auto;
   position: relative;
 }
 
@@ -65,27 +72,28 @@ body {
 }
 
 #message {
-  min-height: 1.5em;
-  font-size: 1.1em;
+  min-height: 1.2em;
+  font-size: 1em;
   color: #d4af37;
+  margin: 3px 0;
 }
 
 #typing-area {
-  margin-top: 5px;
+  margin-top: 0;
   font-size: 1.05em;
 }
 
 #direction-options {
   position: relative;
   width: 360px;
-  height: 165px;
-  margin: 0 auto 8px;
+  height: 125px;
+  margin: 0 auto 5px;
 }
 
 .direction-option {
   position: absolute;
-  min-width: 85px;
-  padding: 5px;
+  min-width: 80px;
+  padding: 4px;
   border: 2px solid #444;
 }
 
@@ -97,7 +105,7 @@ body {
 .direction-name {
   color: #aaa;
   font-size: 0.8em;
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 .direction-option div:last-child {
@@ -143,7 +151,7 @@ body {
 }
 
 #typing-hint {
-  margin-top: 10px;
+  margin-top: 5px;
   color: #aaa;
   font-size: 0.9em;
 }
