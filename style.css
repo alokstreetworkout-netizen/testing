@@ -1,1 +1,144 @@
 
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  color: #eee;
+  font-family: monospace;
+  text-align: center;
+  cursor: none;
+  user-select: none;
+}
+
+#game-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+#level-label {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #aaa;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+#grid {
+  display: grid;
+
+  grid-template-columns: repeat(21, 26px);
+  grid-template-rows: repeat(15, 26px);
+  gap: 2px;
+  justify-content: center;
+  margin: 20px auto;
+  position: relative;
+}
+
+.tile {
+  width: 26px;
+  height: 26px;
+  background: #222;
+}
+
+.wall {
+  background: #444;
+}
+
+.player {
+  background: #4caf50;
+}
+
+.exit {
+  background: #d4af37;
+}
+
+#message {
+  min-height: 1.5em;
+  font-size: 1.1em;
+  color: #d4af37;
+}
+
+#typing-area {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+
+#direction-icon {
+  font-size: 2em;
+  color: #4caf50;
+  margin-bottom: 8px;
+}
+
+#word-target {
+  color: #d4af37;
+  font-weight: bold;
+}
+
+#typed-buffer {
+  color: #eee;
+}
+
+.player-piece {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #4caf50;
+  top: 0;
+  left: 0;
+  transition: transform 70ms linear;
+  z-index: 2;
+}
+
+.enemy-piece {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #d44;
+  top: 0;
+  left: 0;
+  transition: transform 120ms linear;
+  z-index: 1;
+}
+
+#game-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  z-index: 10;
+}
+
+#screen-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #d4af37;
+  margin-bottom: 25px;
+}
+
+#screen-text {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+#screen-action {
+  margin-top: 30px;
+  color: #4caf50;
+  font-size: 1.1em;
+}
