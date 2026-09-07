@@ -73,19 +73,40 @@ body {
   font-size: 1.2em;
 }
 
-#direction-icon {
-  font-size: 2em;
-  color: #4caf50;
-  margin-bottom: 8px;
+#direction-options {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
-#word-target {
+.direction-option {
+  border: 2px solid #444;
+  padding: 10px;
+  min-height: 60px;
+}
+
+.direction-name {
+  display: block;
+  color: #4caf50;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.direction-option span:last-child {
   color: #d4af37;
   font-weight: bold;
 }
 
 #typed-buffer {
   color: #eee;
+}
+
+#typing-hint {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 0.9em;
 }
 
 .player-piece {
