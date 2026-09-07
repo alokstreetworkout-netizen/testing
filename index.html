@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,20 +18,42 @@
   <p id="message"></p>
 
   <div id="typing-area">
-    <div id="direction-icon"></div>
-    <div>Type: <span id="word-target"></span></div>
+    <div id="direction-options">
+      <div class="direction-option">
+        <span class="direction-name">↑ UP</span>
+        <span id="word-up"></span>
+      </div>
+
+      <div class="direction-option">
+        <span class="direction-name">↓ DOWN</span>
+        <span id="word-down"></span>
+      </div>
+
+      <div class="direction-option">
+        <span class="direction-name">← LEFT</span>
+        <span id="word-left"></span>
+      </div>
+
+      <div class="direction-option">
+        <span class="direction-name">→ RIGHT</span>
+        <span id="word-right"></span>
+      </div>
+    </div>
+
     <div>You typed: <span id="typed-buffer"></span></div>
+    <div id="typing-hint">Press Enter or Space to move</div>
   </div>
 
   <div id="game-screen">
     <div id="screen-title">DUNGEON</div>
+
     <div id="screen-text">
       An enemy is coming for you.<br><br>
-      Choose a direction with an Arrow Key.<br>
-      Type the word shown on screen.<br>
-      Press Enter to move.<br><br>
+      Type the word for the direction you want to move.<br>
+      Press Enter or Space to move.<br><br>
       Reach the exit before you're caught.
     </div>
+
     <div id="screen-action">Press Enter to start</div>
   </div>
 
