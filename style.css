@@ -74,29 +74,66 @@ body {
 }
 
 #direction-options {
-  display: grid;
-  grid-template-columns: repeat(2, 180px);
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 15px;
+  position: relative;
+  width: 420px;
+  height: 220px;
+  margin: 0 auto 15px;
 }
 
 .direction-option {
+  position: absolute;
+  min-width: 100px;
+  padding: 8px;
   border: 2px solid #444;
-  padding: 10px;
-  min-height: 60px;
+}
+
+.direction-arrow {
+  font-size: 1.7em;
+  color: #4caf50;
 }
 
 .direction-name {
-  display: block;
-  color: #4caf50;
-  font-weight: bold;
-  margin-bottom: 5px;
+  color: #aaa;
+  font-size: 0.8em;
+  margin: 3px 0;
 }
 
-.direction-option span:last-child {
+.direction-option div:last-child {
   color: #d4af37;
   font-weight: bold;
+}
+
+.up-option {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.down-option {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-option {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.right-option {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+#center-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #4caf50;
+  font-size: 1.5em;
 }
 
 #typed-buffer {
