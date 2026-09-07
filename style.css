@@ -15,6 +15,8 @@ body {
   text-align: center;
   cursor: none;
   user-select: none;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 #game-area {
@@ -40,7 +42,7 @@ body {
   grid-template-rows: repeat(15, 26px);
   gap: 2px;
   justify-content: center;
-  margin: 20px auto;
+  margin: 8px auto;
   position: relative;
 }
 
@@ -69,26 +71,26 @@ body {
 }
 
 #typing-area {
-  margin-top: 15px;
-  font-size: 1.2em;
+  margin-top: 5px;
+  font-size: 1.05em;
 }
 
 #direction-options {
   position: relative;
-  width: 420px;
-  height: 220px;
-  margin: 0 auto 15px;
+  width: 360px;
+  height: 165px;
+  margin: 0 auto 8px;
 }
 
 .direction-option {
   position: absolute;
-  min-width: 100px;
-  padding: 8px;
+  min-width: 85px;
+  padding: 5px;
   border: 2px solid #444;
 }
 
 .direction-arrow {
-  font-size: 1.7em;
+  font-size: 1.4em;
   color: #4caf50;
 }
 
